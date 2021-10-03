@@ -34,4 +34,15 @@ index=_introspection host="*" status="success"
 | table difference
 ```
 
-### O recurso ☝ possibilita realização de consultas que medem a diferença de um atributo, resultado de duas consultas diferentes possibilitando a extração da duração de processos definidos.   
+```
+index=_internal clientip="*" status=200
+| stats latest(date_second) as finish by clientip 
+| join clientip
+    [ search index=_internal clientip="*" status=201
+    | stats latest(date_second) as start by clientip ] 
+| eval difference=finish-start
+```
+
+
+
+### Os recursos ☝ possibilitam a realização de consultas que medem a diferença de um atributo, resultado de duas consultas diferentes possibilitando a extração da duração de processos definidos e distintos 😉. 
