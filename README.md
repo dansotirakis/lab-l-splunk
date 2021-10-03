@@ -20,7 +20,9 @@ Login: admin
    
 4. ### Aceite o contrato de licença com `SPLUNK_START_ARGS=--accept-license`. Isso deve ser explicitamente aceito em todos os `splunk/splunk`contêineres, caso contrário, o Splunk não iniciará.
 
-## ⛏ Construct
+---
+
+## ⛏ Query
 
 ```
 index=_introspection host="*" status="success"
